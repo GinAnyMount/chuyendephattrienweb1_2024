@@ -7,10 +7,12 @@ $userModel = new UserModel();
 
 $params = [];
 if (!empty($_GET['keyword'])) {
-    $params['keyword'] = $_GET['keyword'];
+    $params['keyword'] = htmlspecialchars(trim($_GET['keyword']));
 }
 
 $users = $userModel->getUsers($params);
+$token = bin2hex(random_bytes(32));
+$_SESSION['csrf_token'] = $token;
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,24 +41,18 @@ $users = $userModel->getUsers($params);
                 <tbody>
                     <?php foreach ($users as $user) {?>
                         <tr>
-                            <th scope="row"><?php echo $user['id']?></th>
+                            <th scope="row"><?php echo htmlspecialchars($user['id'])?></th>
+                            <td><?php echo htmlspecialchars($user['name'])?></td>
+                            <td><?php echo htmlspecialchars($user['fullname'])?></td>
+                            <td><?php echo htmlspecialchars($user['type'])?></td>
                             <td>
-                                <?php echo $user['name']?>
-                            </td>
-                            <td>
-                                <?php echo $user['fullname']?>
-                            </td>
-                            <td>
-                                <?php echo $user['type']?>
-                            </td>
-                            <td>
-                                <a href="form_user.php?id=<?php echo $user['id'] ?>">
+                                <a href="form_user.php?id=<?php echo $userModel->getEncodedId($user['id']) ?>">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true" title="Update"></i>
                                 </a>
-                                <a href="view_user.php?id=<?php echo $user['id'] ?>">
+                                <a href="view_user.php?id=<?php echo htmlspecialchars($userModel->getEncodedId($user['id'])) ?>">
                                     <i class="fa fa-eye" aria-hidden="true" title="View"></i>
                                 </a>
-                                <a href="delete_user.php?id=<?php echo $user['id'] ?>">
+                                <a href="delete_user.php?id=<?php echo htmlspecialchars($userModel->getEncodedId($user['id'])) ?>&csrf_token=<?php echo $token ?>">
                                     <i class="fa fa-eraser" aria-hidden="true" title="Delete"></i>
                                 </a>
                             </td>
@@ -64,7 +60,7 @@ $users = $userModel->getUsers($params);
                     <?php } ?>
                 </tbody>
             </table>
-        <?php }else { ?>
+        <?php } else { ?>
             <div class="alert alert-dark" role="alert">
                 This is a dark alert—check it out!
             </div>

@@ -4,7 +4,18 @@ require_once 'BaseModel.php';
 
 class UserModel extends BaseModel {
 
-    public function findUserById($id) {
+    // Hàm mã hóa ID
+    private function encodeId($id) {
+        return base64_encode($id);
+    }
+
+    // Hàm giải mã ID
+    private function decodeId($encodedId) {
+        return base64_decode($encodedId);
+    }
+
+    public function findUserById($encodedId) {
+        $id = $this->decodeId($encodedId); // Giải mã ID
         $sql = 'SELECT * FROM users WHERE id = '.$id;
         $user = $this->select($sql);
 
@@ -12,7 +23,7 @@ class UserModel extends BaseModel {
     }
 
     public function findUser($keyword) {
-        $sql = 'SELECT * FROM users WHERE user_name LIKE %'.$keyword.'%'. ' OR user_email LIKE %'.$keyword.'%';
+        $sql = 'SELECT * FROM users WHERE user_name LIKE "%'.$keyword.'%" OR user_email LIKE "%'.$keyword.'%"';
         $user = $this->select($sql);
 
         return $user;
@@ -34,13 +45,13 @@ class UserModel extends BaseModel {
 
     /**
      * Delete user by id
-     * @param $id
+     * @param $encodedId
      * @return mixed
      */
-    public function deleteUserById($id) {
+    public function deleteUserById($encodedId) {
+        $id = $this->decodeId($encodedId);
         $sql = 'DELETE FROM users WHERE id = '.$id;
         return $this->delete($sql);
-
     }
 
     /**
@@ -49,11 +60,22 @@ class UserModel extends BaseModel {
      * @return mixed
      */
     public function updateUser($input) {
+        if (empty($input['name']) || !preg_match('/^[A-Za-z0-9]{5,15}$/', $input['name'])) {
+            return 'Tên người dùng không hợp lệ. Nó phải từ 5 đến 15 ký tự và chỉ chứa A-Z, a-z, 0-9.';
+        }
+    
+        if (empty($input['password']) || 
+            !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~!@#$%^&*()]).{5,10}$/', $input['password'])) {
+            return 'Mật khẩu không hợp lệ. Nó phải từ 5 đến 10 ký tự, bao gồm chữ thường, chữ HOA, số và ký tự đặc biệt.';
+        }
+        $name = mysqli_real_escape_string(self::$_connection, $input['name']);
+        $password = password_hash($input['password'], PASSWORD_BCRYPT);
+    
         $sql = 'UPDATE users SET 
-                 name = "' . mysqli_real_escape_string(self::$_connection, $input['name']) .'", 
-                 password="'. md5($input['password']) .'"
-                WHERE id = ' . $input['id'];
-
+                 name = "' . $name . '", 
+                 password = "' . $password . '" 
+                WHERE id = ' . (int)$input['id']; 
+    
         $user = $this->update($sql);
 
         return $user;
@@ -97,4 +119,11 @@ class UserModel extends BaseModel {
 
         return $users;
     }
+
+    // Hàm để lấy ID đã mã hóa
+    public function getEncodedId($id) {
+        return $this->encodeId($id);
+    }
+    
+    
 }

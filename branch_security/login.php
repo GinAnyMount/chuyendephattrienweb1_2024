@@ -8,7 +8,7 @@ $userModel = new UserModel();
 
 if (!empty($_POST['submit'])) {
     $users = [
-        'username' => $_POST['username'],
+        'username' => htmlspecialchars(trim( $_POST['username'])),
         'password' => $_POST['password']
     ];
     $user = NULL;
@@ -18,6 +18,7 @@ if (!empty($_POST['submit'])) {
 
         $_SESSION['message'] = 'Login successful';
         header('location: list_users.php');
+        exit();
     }else {
         //Login failed
         $_SESSION['message'] = 'Login failed';
