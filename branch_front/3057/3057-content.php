@@ -11,48 +11,77 @@ $url_path = $url_host . $matches[1][0];
 
 $url_path = str_replace('\\', '/', $url_path);
 ?>
-    <section class="our-news">
-        <h2>OUR NEWS</h2>
-        <div class="news-container">
-            <div class="news-item">
-                <img src="https://demo.brothersthemes.com/phone-repair/wp-content/uploads/sites/3/2016/12/blog-01-360x185.jpg" alt="" />
-                <a href="#" class="news-title"><h3>HOW TO CHOOSE HEADPHONES FOR YOUR SMARTPHONE</h3></a>
-                <p>
-                    Praesent sit amet erat ornare, sodales risus quis, tempus risus. Sed
-                    leo enim, pharetra vestibulum metus lobortis, ultricies efficitur
-                    eros.
-                </p>
-                <div class="news-meta">
-                    <span><i class="fa fa-calendar"></i> Dec 7, 2016</span>
-                    <span><i class="fa fa-user"></i> admin</span>
-                    <span><a href="#" class="read-more">READ MORE</a></span>
+
+<div class="type-3057">
+    <section class="container our-news">
+        <h2 class="text-center mb-4">OUR NEWS</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="news-item card">
+                    <img src="./img/blog-1.jpg" alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <a href="#" class="news-title">
+                            <h3 class="card-title">HOW TO CHOOSE HEADPHONES FOR YOUR SMARTPHONE</h3>
+                        </a>
+                        <p class="card-text">
+                            Praesent sit amet erat ornare, sodales risus quis, tempus risus. Sed
+                            leo enim, pharetra vestibulum metus lobortis, ultricies efficitur
+                            eros.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="news-meta d-flex justify-content-between">
+                            <span><i class="fa fa-calendar"></i> Dec 7, 2016</span>
+                            <span><i class="fa fa-user"></i> admin</span>
+                            <a href="#" class="read-more">READ MORE</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="news-item">
-                <img src="https://demo.brothersthemes.com/phone-repair/wp-content/uploads/sites/3/2016/12/blog-1-360x185.jpg" alt=""/>
-                <a href="#" class="news-title"><h3>THE TRANSFER OF DATA FROM TABLET TO PHONE</h3></a>
-                <p>
-                    Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                    Aliquam nec blandit magna. Proin hendrerit molestie porttitor.
-                </p>
-                <div class="news-meta">
-                    <span><i class="fa fa-calendar"></i> Dec 5, 2016</span>
-                    <span><i class="fa fa-user"></i> admin</span>
-                    <span><a href="#" class="read-more">READ MORE</a></span>
+
+            <div class="col-md-4 mb-4">
+                <div class="news-item card">
+                    <img src="./img/blog-2.jpg" alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <a href="#" class="news-title">
+                            <h3 class="card-title">THE TRANSFER OF DATA FROM TABLET TO SMARTPHONE</h3>
+                        </a>
+                        <p class="card-text">
+                            Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                            Aliquam nec blandit magna. Proin hendrerit molestie porttitor.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="news-meta d-flex justify-content-between">
+                            <span><i class="fa fa-calendar"></i> Dec 5, 2016</span>
+                            <span><i class="fa fa-user"></i> admin</span>
+                            <a href="#" class="read-more">READ MORE</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="news-item">
-                <img src="https://demo.brothersthemes.com/phone-repair/wp-content/uploads/sites/3/2016/12/blog-2-360x185.jpg" alt=""/>
-                <a href="#" class="news-title"><h3>TERMS OF USE OF PHONES AND TABLETS IN HOT COUNTRIES</h3></a>
-                <p>
-                    Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                    Aliquam nec blandit magna. Proin hendrerit molestie porttitor.
-                </p>
-                <div class="news-meta">
-                    <span><i class="fa fa-calendar"></i> Dec 2, 2016</span>
-                    <span><i class="fa fa-user"></i> admin</span>
-                    <span><a href="#" class="read-more">READ MORE</a></span>
+
+            <div class="col-md-4 mb-4">
+                <div class="news-item card">
+                    <img src="./img/blog-3.jpg" alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <a href="#" class="news-title">
+                            <h3 class="card-title">TERMS OF USE OF PHONES AND TABLETS IN HOT COUNTRIES</h3>
+                        </a>
+                        <p class="card-text">
+                            Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                            Aliquam nec blandit magna. Proin hendrerit molestie porttitor.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="news-meta d-flex justify-content-between">
+                            <span><i class="fa fa-calendar"></i> Dec 2, 2016</span>
+                            <span><i class="fa fa-user"></i> admin</span>
+                            <a href="#" class="read-more">READ MORE</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+</div>
