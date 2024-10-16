@@ -21,7 +21,7 @@ $url_path = str_replace('\\', '/', $url_path);
                     <img src="./img/blog-1.jpg" alt="" class="card-img-top" />
                     <div class="card-body">
                         <a href="#" class="news-title">
-                            <h3 class="card-title">HOW TO CHOOSE HEADPHONES FOR YOUR SMARTPHONE</h3>
+                            <h3>HOW TO CHOOSE HEADPHONES FOR YOUR SMARTPHONE</h3>
                         </a>
                         <p class="card-text">
                             Praesent sit amet erat ornare, sodales risus quis, tempus risus. Sed
@@ -44,7 +44,7 @@ $url_path = str_replace('\\', '/', $url_path);
                     <img src="./img/blog-2.jpg" alt="" class="card-img-top" />
                     <div class="card-body">
                         <a href="#" class="news-title">
-                            <h3 class="card-title">THE TRANSFER OF DATA FROM TABLET TO SMARTPHONE</h3>
+                            <h3>THE TRANSFER OF DATA FROM TABLET TO SMARTPHONE</h3>
                         </a>
                         <p class="card-text">
                             Interdum et malesuada fames ac ante ipsum primis in faucibus.
@@ -66,7 +66,7 @@ $url_path = str_replace('\\', '/', $url_path);
                     <img src="./img/blog-3.jpg" alt="" class="card-img-top" />
                     <div class="card-body">
                         <a href="#" class="news-title">
-                            <h3 class="card-title">TERMS OF USE OF PHONES AND TABLETS IN HOT COUNTRIES</h3>
+                            <h3>TERMS OF USE OF PHONES AND TABLETS IN HOT COUNTRIES</h3>
                         </a>
                         <p class="card-text">
                             Interdum et malesuada fames ac ante ipsum primis in faucibus.

@@ -1,3 +1,144 @@
-.type-3073{
-    
+@primary-color: #00a0d2;
+@text-color: #333;
+@light-gray: #f8f9fa;
+.type-3073 {
+  body {
+    font-family: Arial, sans-serif;
+    color: @text-color;
+    background-color: @light-gray;
+  }
+
+  .card {
+    border: 2px dotted #3586f9;
+    padding: 10px;
+    margin: 20px;
+    background-color: rgb(222, 252, 255);
+
+    .card-title {
+      color: @primary-color;
+    }
+  }
+
+  .btn-primary {
+    background-color: @primary-color;
+    border-color: @primary-color;
+
+    &:hover {
+      background-color: darken(@primary-color, 20%);
+      border-color: darken(@primary-color, 20%);
+    }
+  }
+
+  .list-unstyled {
+    li {
+      margin-bottom: 0.5rem;
+
+      a {
+        color: @text-color;
+        text-decoration: none;
+
+        &:hover {
+          color: @primary-color;
+        }
+      }
+    }
+  }
+  .clickable-card {
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-link {
+      color: @text-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .btn {
+      pointer-events: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      margin-bottom: 1rem;
+    }
+  }
+  .sidebar-widget {
+    margin-bottom: 30px;
+
+    .widget-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: @border-color;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 3px;
+        background-color: @primary-color;
+        z-index: 1;
+      }
+    }
+
+    &.recent-posts {
+      .widget-title:before {
+        background-color: @primary-color;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+
+        a {
+          color: @text-color;
+          text-decoration: none;
+
+          &:hover {
+            color: @primary-color;
+          }
+        }
+      }
+    }
+
+    &.recent-comments {
+      .widget-title:before {
+        background-color: lighten(@primary-color, 20%);
+      }
+
+      ul li {
+        margin-bottom: 10px;
+        color: @text-color;
+
+        a {
+          color: @primary-color;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }
