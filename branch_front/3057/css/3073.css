@@ -30,23 +30,6 @@
 .type-3073 .list-unstyled li a:hover {
   color: #00a0d2;
 }
-.type-3073 .clickable-card {
-  transition: box-shadow 0.3s ease-in-out;
-  cursor: pointer;
-}
-.type-3073 .clickable-card:hover {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-.type-3073 .clickable-card .card-link {
-  color: #333;
-  text-decoration: none;
-}
-.type-3073 .clickable-card .card-link:hover {
-  text-decoration: none;
-}
-.type-3073 .clickable-card .btn {
-  pointer-events: none;
-}
 @media (max-width: 768px) {
   .type-3073 .card {
     margin-bottom: 1rem;

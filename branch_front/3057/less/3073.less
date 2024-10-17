@@ -1,6 +1,7 @@
 @primary-color: #00a0d2;
 @text-color: #333;
 @light-gray: #f8f9fa;
+
 .type-3073 {
   body {
     font-family: Arial, sans-serif;
@@ -43,33 +44,13 @@
       }
     }
   }
-  .clickable-card {
-    transition: box-shadow 0.3s ease-in-out;
-    cursor: pointer;
-
-    &:hover {
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .card-link {
-      color: @text-color;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
-
-    .btn {
-      pointer-events: none;
-    }
-  }
 
   @media (max-width: 768px) {
     .card {
       margin-bottom: 1rem;
     }
   }
+
   .sidebar-widget {
     margin-bottom: 30px;
 
